@@ -19,6 +19,7 @@ public class PlayerComp extends Player {
      */
     @Override
     public int guess() {
+
         return brain.nextInt(6) + 1;
     }
 

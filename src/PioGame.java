@@ -1,5 +1,9 @@
 import players.PlayerComp;
+import players.PlayerHuman;
 import statistics.WinStatistics;
+
+import java.sql.SQLOutput;
+import java.util.Scanner;
 
 /**
  * Gra w odgadywanie wylosowanej liczby.
@@ -19,11 +23,47 @@ public class PioGame {
 
         Game game = new Game(new WinStatistics());
 
-        game.addPlayer(new PlayerComp("Arun"));
-        game.addPlayer(new PlayerComp("Bartek"));
+
+        System.out.println("Witaj ! Wybierz tryb gry");
+        System.out.println("---------------------");
+        System.out.println();
+        System.out.println("1.Tryb multiplayer: wybierz 1 ");
+        System.out.println();
+        System.out.println("2.Tryb singleplayer: wybierz 2 ");
+        Scanner cin = new Scanner(System.in);
+        int liczba = cin.nextInt();
+
+        switch (liczba) {
+            case 1:
+                System.out.println("Wybrałeś tryb multiplayer");
+                System.out.println("---------------------");
+                System.out.println();
+                System.out.println("Wprowadź nick pierwszego gracza");
+                String name1 = cin.next();
+                System.out.println("---------------------");
+                System.out.println("Wprowadź nick drugiego gracza");
+                String name2 = cin.next();
+                game.addPlayer(new PlayerHuman(name1));
+                game.addPlayer(new PlayerHuman(name2));
+                break;
+            case 2:
+                System.out.println("Wybrałeś tryb singleplayer");
+                System.out.println("---------------------");
+                System.out.println();
+                System.out.println("Wprowadź swój nick");
+                String singlePlayerName = cin.next();
+                game.addPlayer(new PlayerHuman(singlePlayerName));
+                game.addPlayer(new PlayerComp("Komputer"));
+                break;
+
+            default:
+                game.addPlayer(new PlayerComp("Komputer"));
+        }
+
+
         game.printPlayers();
 
-        for (int i=0; i<100; ++i) {
+        for (int i = 0; i < 4; ++i) {
             game.play();
         }
 

@@ -57,7 +57,7 @@ public class Game {
             repeat = true;
 
             number = rand.nextInt(6) + 1;
-            System.out.println("Kostka: " + number);
+            System.out.println("Kostka: " + number);   //wylosowana wartość kostki
 
             for (Player player : players) {
                 guess = player.guess(); // odgadywanie zlecamy obiektowi klasy players.Player

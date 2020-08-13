@@ -7,7 +7,8 @@ public abstract class Player {
     /**
      * Konstruktory
      */
-    public Player() {}
+    public Player() {
+    }
 
     public Player(String name) {
         setName(name);
@@ -16,14 +17,14 @@ public abstract class Player {
     /**
      * Imię gracza: pole, getter i setter.
      */
-    private String name = "Domyślny Janusz";
+    private String name = "Domyślny";
 
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        if (name != null && name.matches("^[a-zA-Z0-9~.]{3,}$")) {
+        if (name != null && name.matches("^[a-zA-Z0-9~.]{3,}$")) {   //wyrażenie regularne
             this.name = name;
         } else {
             throw new IllegalArgumentException("Nieprawidłowe imię.");

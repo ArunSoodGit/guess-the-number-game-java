@@ -22,7 +22,7 @@ public class PlayerHuman extends Player {
      */
     @Override
     public int guess() {
-        System.out.print("Wpisz liczbę (1-6): ");
+        System.out.print(getName() + " Wpisz liczbę (1-6): ");
         return cin.nextInt();
     }
 
